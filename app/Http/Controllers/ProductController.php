@@ -145,7 +145,7 @@ class ProductController extends Controller
         $id = DB::table('teachers')->select('id')->latest()->first();
            $saveRecord = new Product();
 
-           $saveRecord->teacher_id      = Auth::id();
+           $saveRecord->teacher_id      = Auth::user()->teacher->id;
            $saveRecord->level_id        = $request->level_id;
            $saveRecord->subject_id      = $request->subject_id;
            $saveRecord->time            = $request->time;
@@ -166,7 +166,10 @@ class ProductController extends Controller
 
         // $this->product->createProduct($data);
 
-        return redirect('/');
+        // return redirect('/');
+        return redirect()->route('product.index', $saveRecord->id)
+        ->with('success','Product created successfully.');
+
     }
 
     public function edit($id)

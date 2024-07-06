@@ -75,12 +75,6 @@ Route::get('/products/edit/{id}', [ProductController::class, 'edit'])->name('pro
 Route::put('/products/update/{id}', [ProductController::class, 'update'])->name('product.update');
 Route::get('/products/{id}', [ProductController::class, 'countlike']);
 
-//Route::get('/subject', [SubjectController::class, 'show'])->name('product.subject');
-//Route::get('/subjects/{subject}', [SubjectController::class, 'productsBySubject'])->name('products.by_subject');
-
-//Route::get('/', [FilterSubjectController::class, 'index']);
-
-//Route::get('products/{id}', [CommentController::class, 'loadComments'])->name('product.show');
 Route::post('/products/{id}', [CommentController::class, 'addComment'])->middleware('auth')->name('products.comment');
 
 Auth::routes();
@@ -89,10 +83,6 @@ Auth::routes();
 
 Route::post('products/{product}/like', [LikeController::class, 'like'])->middleware('auth')->name('products.like');
 Route::post('products/{product}/unlike', [LikeController::class, 'unlike'])->middleware('auth')->name('products.unlike');
-
-
-// Route::get('/categories', [SubjectController::class, 'index'])->name('categories.index');
-// Route::get('/categories/{subject}', [SubjectController::class, 'showByCategory'])->name('product.showByCategory');
 
 
 // routes/web.php

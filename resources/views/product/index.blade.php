@@ -58,9 +58,9 @@
 
 
         </div> --}}
-        {{-- @php
+        @php
             $products = App\Models\Product::orderBy('id', 'desc')->get();
-        @endphp --}}
+        @endphp
 
         <div class="card col-span-6 divide-y-2 gap-3 pb-3">
             {{-- <h2>Products in {{ $subject->name }} Category</h2> --}}
